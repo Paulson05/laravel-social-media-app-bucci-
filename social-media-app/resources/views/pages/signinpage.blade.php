@@ -22,7 +22,7 @@
     
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">bucci</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">update profile</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">sign out</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('auth.signout') }}">sign out</a></li>
                 
             </ul>
     </div>

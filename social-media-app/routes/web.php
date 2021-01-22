@@ -21,6 +21,9 @@ Route::get('/signup', [App\Http\Controllers\AuthController::class, 'getSignup'])
 Route::post('/postsignup', [App\Http\Controllers\AuthController::class, 'postSignup'])->name('auth.postSignup');
 Route::get('/signin', [App\Http\Controllers\AuthController::class, 'getSignin'])->name('auth.signin');
 Route::post('/signin', [App\Http\Controllers\AuthController::class, 'postSignin'])->name('auth.postSignin');
+Route::get('/signout', [App\Http\Controllers\AuthController::class, 'getSignout'])->name('auth.signout');
+
+
 
 
 Route::get('/signinpage', [App\Http\Controllers\PagesController::class, 'signinPage'])->name('pages.signinPage');

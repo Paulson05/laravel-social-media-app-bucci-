@@ -42,7 +42,7 @@ class AuthController extends Controller
 
     
     public function postSignin(Request $request){
-    //    if (!Auth::attempt($request->only(['email', 'password']), $request->has('remeber'))){
+    //    if (!Auth::users($request->only(['email', 'password']), $request->has('remeber'))){
            
     //        return redirect()->back()->with('info', 'could not sign you in with those details');
            
@@ -51,10 +51,7 @@ class AuthController extends Controller
     //    return redirect() ->route('index')
     //    ->with('info', 'you are signed up!');
 
-    // $request->validate([
-    //     'email' => 'required',
-    //     'password' => 'required'
-    // ]);
+  
     
     // $credentials = $request->except(['_token']);
 
@@ -86,4 +83,12 @@ class AuthController extends Controller
 
     }
 
+    public function getSignout(){
+        Auth::logout();
+        return redirect()->route('index');
+
+    }
+
 }
+
+

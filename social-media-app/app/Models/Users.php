@@ -18,4 +18,23 @@ class Users extends Model
         'location',
     ];
 
+    public function getName(){
+        if($this->first_name && $this->last_name){
+            return "{$this->first_name} {$this->last_name}";
+        }
+
+        if($this->first_name){
+            return $this->first_name;
+        }
+
+        return null;
+    }
+
+    public function getNameOrUsename(){
+        return $this->getName() ?: $this->username;
+    }
+     
+    public function getFirstNameOrUsename(){
+        return $this->first_name ?: $this->username;
+    }
 }
