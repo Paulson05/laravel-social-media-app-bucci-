@@ -19,5 +19,9 @@ Route::get('/alert', function () {
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('/signup', [App\Http\Controllers\AuthController::class, 'getSignup'])->name('auth.signup');
 Route::post('/postsignup', [App\Http\Controllers\AuthController::class, 'postSignup'])->name('auth.postSignup');
+Route::get('/signin', [App\Http\Controllers\AuthController::class, 'getSignin'])->name('auth.signin');
+Route::post('/signin', [App\Http\Controllers\AuthController::class, 'postSignin'])->name('auth.postSignin');
+
+
 
 
