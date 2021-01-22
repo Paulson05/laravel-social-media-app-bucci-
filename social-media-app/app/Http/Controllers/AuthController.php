@@ -77,7 +77,7 @@ class AuthController extends Controller
 
     $data = DB::select('select id, email   from users where email=? and password=?',[$email,$password]);
      if(count($data)){
-        return redirect()->route('index')->with('info', 'you are signed up!');
+        return redirect()->route('pages.signinPage')->with('info', 'you are signed up!');
      }
      else{
         return redirect()->back();

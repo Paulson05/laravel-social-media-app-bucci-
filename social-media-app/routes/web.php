@@ -23,5 +23,8 @@ Route::get('/signin', [App\Http\Controllers\AuthController::class, 'getSignin'])
 Route::post('/signin', [App\Http\Controllers\AuthController::class, 'postSignin'])->name('auth.postSignin');
 
 
+Route::get('/signinpage', [App\Http\Controllers\PagesController::class, 'signinPage'])->name('pages.signinPage');
+
+
 
 
