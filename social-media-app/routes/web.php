@@ -23,11 +23,8 @@ Route::get('/signin', [App\Http\Controllers\AuthController::class, 'getSignin'])
 Route::post('/signin', [App\Http\Controllers\AuthController::class, 'postSignin'])->name('auth.postSignin');
 Route::get('/signout', [App\Http\Controllers\AuthController::class, 'getSignout'])->name('auth.signout');
 
-
-
-
 Route::get('/signinpage', [App\Http\Controllers\PagesController::class, 'signinPage'])->name('pages.signinPage');
 
-
+Route::get('/search', [App\Http\Controllers\SearchController::class, 'getResults'])->name('search.results');
 
 

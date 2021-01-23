@@ -11,16 +11,16 @@
                 <li ><a class="nav-link js-scroll-trigger" href="">Timeline</a></li>
                 <li ><a class="nav-link js-scroll-trigger" href="">Friends</a></li>
             </ul>
-             <form action="" class="navbar-form mr-auto" role="search" action="">
+             <form class="navbar-form mr-auto"  role="search" action="{{ route('search.results')}}">
              
-                    <input class "nav-item form-control" type="text" name="" id="" placeholder="find people">
+                    <input class "nav-item form-control" type="text" name="query" id="" placeholder="find people">
             
                 <button type="submit" class="nav-item btn btn-default">search</button>
              </form>
              
             <ul class="nav navbar-nav ml-auto">
     
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">bucci</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">buchi</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">update profile</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('auth.signout') }}">sign out</a></li>
                 
