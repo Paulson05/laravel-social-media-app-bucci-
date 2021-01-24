@@ -1,12 +1,16 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
+use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
-class Users extends Model
+use Illuminate\Contracts\Auth\Authenticatable as  AuthenticatableContract;
+use Illuminate\Contracts\Auth\CanResetPassword as  CanResetPasswordContract;
+class Users extends  Model implements AuthenticatableContract,
+CanResetPasswordContract
 {
+    use Authenticatable, CanResetPassword ;  
     use HasFactory;
     protected $table = 'users';
     protected $fillable = [
@@ -43,4 +47,21 @@ class Users extends Model
 
         ";
     }
+
+
+    public function friendsOfMine(){
+            return $this->belongsToMany('App\Models\Users', 'friends', 'user_id', 'friends_id');
+        }
+        public function friendOf(){
+       
+        
+            return $this->belongsToMany('App\Models\Users', 'friends', 'friends_id', 'user_id');
+        }
+        public function friends(){
+       
+        
+            return $this->friendsOfMine()->wherePivot('accepted', true)->get()->
+              merge($this->friendOf()->wherePivot('accepted', true)->get());
+        }
+        
 }

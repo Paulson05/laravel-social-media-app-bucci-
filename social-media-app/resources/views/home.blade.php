@@ -41,7 +41,7 @@
                    </div>
             </div>
             {{--  @include('templates.partials.alerts')  --}}
-            <div class="col-lg-4 my-auto">
+            <div class="col-lg-4 my-auto d-none d-md-block">
                 <div class="device-container">
                     <div class="device-mockup iphone6_plus portrait white">
                         <div class="device" style="background-image:url('assets/img/iphone_6_plus_white_port.png');">

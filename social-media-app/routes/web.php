@@ -27,4 +27,5 @@ Route::get('/signinpage', [App\Http\Controllers\PagesController::class, 'signinP
 
 Route::get('/search', [App\Http\Controllers\SearchController::class, 'getResults'])->name('search.results');
 
+Route::get('/profile/{username}', [App\Http\Controllers\ProfileController::class, 'getProfile'])->name('profile.index');
 

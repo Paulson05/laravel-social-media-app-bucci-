@@ -20,8 +20,9 @@ class AuthController extends Controller
                     'email' => 'required|unique:users|email|max:255',
                     'username' => 'required|unique:users|alpha_dash|max:20',
                     'password' => 'required|min:6',
-
+       
            ]);
+           dd('ok');
            $data = array();
            $data['email'] = $request->email;
            $data['username'] = $request->username;
@@ -34,15 +35,14 @@ class AuthController extends Controller
     } 
 
 
-
-    
+   
     public function getSignin(){
         return view('auth.signin');
     }
 
     
     public function postSignin(Request $request){
-    //    if (!Auth::users($request->only(['email', 'password']), $request->has('remeber'))){
+     //    if (!Auth::users($request->only(['email', 'password']), $request->has('remeber'))){
            
     //        return redirect()->back()->with('info', 'could not sign you in with those details');
            

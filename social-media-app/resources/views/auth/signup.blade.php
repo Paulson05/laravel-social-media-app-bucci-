@@ -8,20 +8,20 @@
             <div class="col-lg-6">
                 <form action="{{ route('auth.postSignup') }}" method= "POST">
                     @csrf
-                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                    <div class="form-group .is-valid">
                      <label for="email" style="color: white">Email address:</label>
-                     <input type="email" class="form-control" placeholder="Enter email" name ="email" id="email"  required>
-                        {{-- @if($errors-has('email '))
+                     <input type="email" class="form-control" placeholder="Enter email" name ="email" id="email"  >
+                        @if($errors->has('email '))
                             <span class="help-block">{{ $error->first('username') }}</span>
-                        @endif --}}
+                        @endif
                     </div>
-                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                    <div class="form-group{{ $errors->has('email') ? ' is-invalid' : '' }}">
                         <label for="pwd" style="color: white">username:</label>
-                        <input type="text" class="form-control" placeholder="Enter username"  name ="username"  id="pwd" required>
+                        <input type="text" class="form-control" placeholder="Enter username"  name ="username"  id="pwd" >
                        </div>
-                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                    <div class="form-group{{ $errors->has('email') ? ' is-invalid' : '' }}">
                      <label for="pwd" style="color: white">Password:</label>
-                     <input type="password" class="form-control" placeholder="Enter password"  name ="password"  id="pwd" required value="">
+                     <input type="password" class="form-control" placeholder="Enter password"  name ="password"  id="pwd" value="">
                     </div>
                     
                     <div class="form-group form-check">

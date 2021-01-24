@@ -19,8 +19,10 @@
              </form>
              
             <ul class="nav navbar-nav ml-auto">
-    
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">buchi</a></li>
+                    @if(auth()->check())
+                        {{ "in" }}
+                    @endif
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">{{ auth()->user()->username }}</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="">update profile</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('auth.signout') }}">sign out</a></li>
                 
