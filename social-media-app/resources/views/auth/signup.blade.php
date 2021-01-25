@@ -8,7 +8,7 @@
             <div class="col-lg-6">
                 <form action="{{ route('auth.postSignup') }}" method= "POST">
                     @csrf
-                    <div class="form-group .is-valid">
+                    <div class="form-group has-error">
                      <label for="email" style="color: white">Email address:</label>
                      <input type="email" class="form-control" placeholder="Enter email" name ="email" id="email"  >
                         @if($errors->has('email '))

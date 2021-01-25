@@ -8,6 +8,8 @@
           
             <div class="col-lg-7 my-auto">
                 <div class="container" style="">
+            @include('templates.partials.alerts')
+
                     <h2 style="color: white">Sign up</h2>
                     <div class="row">
                         <div class="col-lg-8">
@@ -40,7 +42,6 @@
                     </div>
                    </div>
             </div>
-            {{--  @include('templates.partials.alerts')  --}}
             <div class="col-lg-4 my-auto d-none d-md-block">
                 <div class="device-container">
                     <div class="device-mockup iphone6_plus portrait white">

@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Users; 
 use Auth;
-use App\Models\Users;
+
 use DB;
 use Illuminate\Http\Request;
 
@@ -22,11 +23,11 @@ class AuthController extends Controller
                     'password' => 'required|min:6',
        
            ]);
-           dd('ok');
+      
            $data = array();
            $data['email'] = $request->email;
            $data['username'] = $request->username;
-           $data['password'] =($request->password);
+           $data['password'] =bcrypt($request->password);
            
            $contact=DB::table('users')->insert($data);
            return redirect()
@@ -42,14 +43,14 @@ class AuthController extends Controller
 
     
     public function postSignin(Request $request){
-     //    if (!Auth::users($request->only(['email', 'password']), $request->has('remeber'))){
+        if(!Auth::attempt($request->only(['email', 'password']), $request->has('remember'))){
            
-    //        return redirect()->back()->with('info', 'could not sign you in with those details');
+           return redirect()->back()->with('info', 'could not sign you in with those details');
            
-    //    }
+       }
 
-    //    return redirect() ->route('index')
-    //    ->with('info', 'you are signed up!');
+       return redirect() ->route('index')
+       ->with('info', 'you are signed up!');
 
   
     
@@ -69,17 +70,17 @@ class AuthController extends Controller
        
 
 
-    $email =$request->input('email');
-    $password=$request->input('password');
+    // $email =$request->input('email');
+    // $password=$request->input('password');
 
-    $data = DB::select('select id, email   from users where email=? and password=?',[$email,$password]);
-     if(count($data)){
-        return redirect()->route('pages.signinPage')->with('info', 'you are signed up!');
-     }
-     else{
-        return redirect()->back();
+    // $data = DB::select('select id, email   from users where email=? and password=?',[$email,$password]);
+    //  if(count($data)){
+    //     return redirect()->route('pages.signinPage')->with('info', 'you are signed up!');
+    //  }
+    //  else{
+    //     return redirect()->back();
 
-    }
+    // }
 
     }
 
