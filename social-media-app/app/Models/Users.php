@@ -34,11 +34,11 @@ class Users extends  Model implements AuthenticatableContract
         return null;
     }
 
-    public function getNameOrUsename(){
+    public function getNameOrUsername(){
         return $this->getName() ?: $this->username;
     }
      
-    public function getFirstNameOrUsename(){
+    public function getFirstNameOrUsername(){
         return $this->first_name ?: $this->username;
     }
 

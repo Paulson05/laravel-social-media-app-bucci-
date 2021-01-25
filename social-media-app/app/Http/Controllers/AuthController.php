@@ -43,29 +43,18 @@ class AuthController extends Controller
 
     
     public function postSignin(Request $request){
-        if(!Auth::attempt($request->only(['email', 'password']), $request->has('remember'))){
+        if (!Auth::attempt($request->only(['email', 'password']), $request->has('remember'))){
            
            return redirect()->back()->with('info', 'could not sign you in with those details');
            
        }
 
        return redirect() ->route('index')
-       ->with('info', 'you are signed up!');
+       ->with('info', 'you are signed in!');
 
   
     
-    // $credentials = $request->except(['_token']);
-
-    // $user = Users::where('email',$request->email)->first();
-  
-    // if (Auth()->attempt($credentials)) {
-
-    //     return redirect()->route('index');
-
-    // }else{
-    //     session()->flash('message', 'Invalid credentials');
-    //     return redirect()->back();
-    // }
+    
 
        
 

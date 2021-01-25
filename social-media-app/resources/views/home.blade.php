@@ -9,7 +9,7 @@
             <div class="col-lg-7 my-auto">
                 <div class="container" style="">
             @include('templates.partials.alerts')
-
+            @if (!Auth::check())
                     <h2 style="color: white">Sign up</h2>
                     <div class="row">
                         <div class="col-lg-8">
@@ -55,5 +55,6 @@
             </div>
         </div>
     </div>
+    @endif
 </header>
 @endsection
