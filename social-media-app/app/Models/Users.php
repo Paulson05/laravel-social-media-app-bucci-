@@ -34,7 +34,7 @@ class Users extends  Model implements AuthenticatableContract
         return null;
     }
 
-    public function getNameOrUsername(){
+    public function git(){
         return $this->getName() ?: $this->username;
     }
      
