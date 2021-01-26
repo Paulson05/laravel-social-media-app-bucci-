@@ -4,8 +4,8 @@
             
             @if (Auth::check())
             <ul class="nav navbar-nav">
-                <li ><a class="nav-link js-scroll-trigger" href="">Timeline</a></li>
-                <li ><a class="nav-link js-scroll-trigger" href="">Friends</a></li>
+                <li ><a class="nav-link js-scroll-trigger" href="{{ route('index') }}">Timeline</a></li>
+                <li ><a class="nav-link js-scroll-trigger" href="{{ route('friend.index') }}">Friends</a></li>
             </ul>
             <form class="navbar-form mr-auto"  role="search" action="{{ route('search.results')}}">
              

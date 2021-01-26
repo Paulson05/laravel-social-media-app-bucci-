@@ -2,6 +2,7 @@
 
 @section('content')
 @include('templates.partials.alerts')
+
     <div class="container" style="margin-top:50px;">
         <h2 style="color: rgb(212, 51, 51)">update page</h2>
         <div class="row">
