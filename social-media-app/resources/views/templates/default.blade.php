@@ -16,7 +16,9 @@
 <body id="page-top">
    
 @include('templates.partials.navigation')
+
   @yield('content')
+  
 
 
     
