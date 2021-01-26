@@ -13,11 +13,18 @@ class ProfileController extends Controller
     {
           $user = Users::where('username', $username)->first();
 
-          if(!$user){
-              abourt(404);
-          }
+      
 
           return view('profile.index')
           ->with('user', $user);
+    }
+
+    public function getEdit(){
+
+     $user = auth()->user();
+        return view('profile.edit')->with('user',$user);
+    }
+    public function postEdit(){
+      
     }
 }

@@ -27,5 +27,9 @@ Route::get('/signout', [App\Http\Controllers\AuthController::class, 'getSignout'
 
 Route::get('/search', [App\Http\Controllers\SearchController::class, 'getResults'])->name('search.results');
 
-Route::get('/profile/{username}', [App\Http\Controllers\ProfileController::class, 'getProfile'])->name('profile.index');
+Route::get('/profile/show/{username}', [App\Http\Controllers\ProfileController::class, 'getProfile'])->name('profile.index');
+Route::get('/profile/edit', [App\Http\Controllers\ProfileController::class, 'getEdit'])->middleware(['auth'])->name('profile.edit');
+Route::post('/', [App\Http\Controllers\ProfileController::class, 'getPost'])->middleware(['auth']);
+
+
 
