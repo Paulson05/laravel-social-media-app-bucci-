@@ -1,7 +1,7 @@
 @extends('templates.default')
 
 @section('content')
-<div class="row" style="margin-top:80px;">
+<div class="row" style="margin-top:120px;">
     <div class="col-lg-6">
         @include('/templates/partials/userblock')
         <hr style="border: 2px solid blue">
@@ -14,8 +14,10 @@
         <a href="" class="btn btn-primary">Accept friend    Request</a>
         @elseif(Auth::user()->isFriendsWith($user))
         <p>you and  {{ $user->getNameOrUsername() }} are friends</p>
+        @else
+        <a href="{{ route('friend.add', ['username' => $user->username]) }}" class="btn btn-primary">Add as friend</a>
         @endif
-        <h4>{{ $user->getFirstNameOrUsername() }} friends</h4>
+        <h4>{{ $user->getFirstNameOrUsername() }} are friends</h4>
     @if(!$user->friends()->count())
     <p style="color: red;">{{ $user->getFirstNameOrUsername() }} has no friends</p>
         @else

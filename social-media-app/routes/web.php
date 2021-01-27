@@ -32,6 +32,7 @@ Route::get('/profile/edit', [App\Http\Controllers\ProfileController::class, 'get
 Route::post('/profile/edit', [App\Http\Controllers\ProfileController::class, 'getPost'])->middleware(['auth']);
 
 Route::get('/friend/index', [App\Http\Controllers\FriendController::class, 'getIndex'])->middleware(['auth'])->name('friend.index');
+Route::get('/friend/add/{username}', [App\Http\Controllers\FriendController::class, 'getAdd'])->middleware(['auth'])->name('friend.add');
 
 
 
