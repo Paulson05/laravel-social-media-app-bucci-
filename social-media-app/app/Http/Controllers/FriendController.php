@@ -54,6 +54,10 @@ class FriendController extends Controller
             ->with('info', 'that user could not be found');
         }
 
+        if(Auth::user()->id === $user->id){
+            return redirect()->route('home');
+        }
+
         if(!Auth::user()->hasFriendRequestReceived($user)){
             return redirect()
             ->route('index')->with('info', "$username didn't send you a friend request");;
