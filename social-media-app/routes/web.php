@@ -33,6 +33,7 @@ Route::post('/profile/edit', [App\Http\Controllers\ProfileController::class, 'ge
 
 Route::get('/friend/index', [App\Http\Controllers\FriendController::class, 'getIndex'])->middleware(['auth'])->name('friend.index');
 Route::get('/friend/add/{username}', [App\Http\Controllers\FriendController::class, 'getAdd'])->middleware(['auth'])->name('friend.add');
+Route::get('/friend/accept/{username}', [App\Http\Controllers\FriendController::class, 'getAccept'])->middleware(['auth'])->name('friend.accept');
 
 
 

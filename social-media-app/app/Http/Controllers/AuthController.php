@@ -23,16 +23,11 @@ class AuthController extends Controller
                     'password' => 'required|min:6',
        
            ]);
-      
-           $data = array();
-           $data['email'] = $request->email;
-           $data['username'] = $request->username;
-           $data['password'] =bcrypt($request->password);
            
-           $contact=DB::table('users')->insert($data);
-           return redirect()
-                            ->route('index')
-                            ->with('info', 'you are signed up!');
+           $array=collect($request->only(['email','username']))->put('password',bcrypt($request->password))->all();
+           Users::create($array);
+            return redirect()->back()
+                             ->with('info', 'you are signed up!');
     } 
 
 
