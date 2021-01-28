@@ -47,7 +47,9 @@ class Users extends  Model implements AuthenticatableContract
 
         ";
     }
-
+    public function statuses(){
+        return $this->hasMany('App\Models\Status',  'user_id');
+    }
 
     public function friendsOfMine(){
             return $this->belongsToMany('App\Models\Users', 'friends', 'user_id', 'friends_id');

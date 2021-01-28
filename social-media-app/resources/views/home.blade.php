@@ -5,10 +5,10 @@
 <header class="masthead" style="background:url('assets/img/bg-pattern.png'), linear-gradient(to left, #7b4397, #dc2430);height:100%;">
     <div class="container h-100">
         <div class="row h-100">
-          
+            @include('templates.partials.alerts')
             <div class="col-lg-7 my-auto">
                 <div class="container" style="">
-            @include('templates.partials.alerts')
+          
             @if (!Auth::check())
                     <h2 style="color: white">Sign up</h2>
                     <div class="row">

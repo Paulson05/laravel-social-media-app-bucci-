@@ -6,12 +6,12 @@
         <div class="row">
             <div class="col-lg-6">
                
-                <form action="" method= "POST">
+                <form action="{{ route('status.post') }}" method= "POST">
                     @csrf
                    
                     <div class="form-group">
                        
-                        <textarea class="form-control" name="status" id="" rows="2" placeholder="whats up onyebuchi"></textarea>
+                        <textarea class="form-control" name="status" id="" rows="2" placeholder="what's up {{Auth::user()->getFirstNameOrUsername() }}?"></textarea>
                    
                   </div>
                     
