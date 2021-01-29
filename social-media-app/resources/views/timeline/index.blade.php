@@ -58,13 +58,13 @@
                                        </div>
                                  
                                     </div>
-                                @endforeach
-
+                                @endforeach     
 
                             </div>
                             
                     </div>
                     <div>
+                        
                         <form role="form" action="{{ route('status.reply',['statusid'=>$status->id]) }}" method="POST">
                             @csrf
                             <div class="mb-3">

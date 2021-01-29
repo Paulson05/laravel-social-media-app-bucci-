@@ -14,13 +14,19 @@ class ProfileController extends Controller
     {
           $user = Users::where('username', $username)->first();
 
-      
-
+         if (!$user) {
+            abort(404);
+         }
+          $statuses = $user->statuses()->notReply()->get();
+         
           return view('profile.index')
-          ->with('user', $user);
-    }
+          ->with('user', $user)
+          ->with('statuses', $statuses)
+          ->with('authUserIsFriend',  Auth::user()->isFriendsWith($user));
 
-    public function getEdit(){
+    } 
+
+    public function getEdit(){ 
 
      $user = auth()->user();
         return view('profile.edit')->with('user',$user);
