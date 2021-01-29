@@ -47,7 +47,7 @@
                  
          </div>
          <div>
-           @if($authUserIsFriend)
+           @if($authUserIsFriend || Auth::user()->id===$status->user->id)
              <form role="form" action="{{ route('status.reply',['statusid'=>$status->id]) }}" method="POST">
                  @csrf
                  <div class="mb-3">
