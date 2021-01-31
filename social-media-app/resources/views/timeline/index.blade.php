@@ -35,12 +35,14 @@
                                 <p class="list-inline">{{$status->body  }}</p>
                                  <ul class="list-inline">
                                      <span>{{ $status->created_at->diffForHumans()}}</span>
+                                     @if($status->user->id !== Auth::user()->id)
                                      <span><a href="">likes</a></span>
                                    <span>10likes</span>
+                                   @endif
 
                                  </ul>
                                    
-                                @foreach($status-> replies as $reply)
+                                 @foreach($status-> replies as $reply)
                                 <div class="media">
                                     <a href="{{ route('profile.index', ['username'=> $reply->user->username]) }}" class="pull-left"></a>
                                     <img src="{{ $reply->user->getAvatarUrl() }}" alt="">
@@ -49,13 +51,15 @@
                                            <p class="list-inline">{{$reply->body  }}</p>
                                             <ul class="list-inline">
                                                 <span>{{ $reply->created_at->diffForHumans()}}</span>
+                                                @if($status->user->id !== Auth::user()->id)
+                                                
                                                 <span><a href="">likes</a></span>
                                               <span>10likes</span>
-           
+                                              @endif
                                             </ul>
                                               
            
-                                       </div>
+                                       </div> 
                                  
                                     </div>
                                 @endforeach     
