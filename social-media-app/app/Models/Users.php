@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-use \App\Model\Status;
+use App\Models\Status;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -49,6 +49,9 @@ class Users extends  Model implements AuthenticatableContract
     }
     public function statuses(){
         return $this->hasMany('App\Models\Status',  'user_id');
+    }
+    public function likes(){
+        return $this->hasMany('App\Models\Like',  'user_id');
     }
 
     public function friendsOfMine(){
@@ -103,16 +106,15 @@ class Users extends  Model implements AuthenticatableContract
   
      
         
-}
+       }
 
-public function hasLikedStatus(Status $status){
-    return (bool)$status->likes
-    ->where('likeable_id', $status->id)
-    ->where('likeable_type', get_class($status))
-    ->where('user_id', $this->id)
-    ->count(); 
-}
+    public function hasLikedStatus(Status $status){
+        return (bool)$status->likes
+        ->where('user_id', $this->id)->count(); 
+    }
 
+    
 
  
 }
+

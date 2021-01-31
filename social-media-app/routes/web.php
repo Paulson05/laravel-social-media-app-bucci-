@@ -37,6 +37,7 @@ Route::get('/friend/accept/{username}', [App\Http\Controllers\FriendController::
 
 Route::post('/status', [App\Http\Controllers\StatusController::class, 'postStatus'])->middleware(['auth'])->name('status.post');
 Route::post('/reply/{statusid}', [App\Http\Controllers\StatusController::class, 'postReply'])->middleware(['auth'])->name('status.reply');
+Route::get('/reply/{statusid}/like', [App\Http\Controllers\StatusController::class, 'getLike'])->middleware(['auth'])->name('status.like');
 
 
 

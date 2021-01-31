@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Like extends Model
-{   
+{
+    protected $guarded=[];   
     
     // use HasFactory;
     protected $table  = 'Likeable';
+  
 
 public function likeable()
 {

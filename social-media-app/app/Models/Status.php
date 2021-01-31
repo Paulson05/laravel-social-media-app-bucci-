@@ -9,7 +9,9 @@ class Status extends Model
 {
     protected $table = 'statuses';
     protected $fillable = [
-            'body','user_id'
+            'body',
+            'user_id'
+            
     ];
 
     public function user()
@@ -29,4 +31,6 @@ class Status extends Model
     {
        return $this->morphMany('App\Models\Like',  'likeable');
     }
+
+    
 }
