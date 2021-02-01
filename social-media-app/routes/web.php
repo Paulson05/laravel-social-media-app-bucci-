@@ -34,11 +34,12 @@ Route::post('/profile/edit', [App\Http\Controllers\ProfileController::class, 'ge
 Route::get('/friend/index', [App\Http\Controllers\FriendController::class, 'getIndex'])->middleware(['auth'])->name('friend.index');
 Route::get('/friend/add/{username}', [App\Http\Controllers\FriendController::class, 'getAdd'])->middleware(['auth'])->name('friend.add');
 Route::get('/friend/accept/{username}', [App\Http\Controllers\FriendController::class, 'getAccept'])->middleware(['auth'])->name('friend.accept');
+Route::get('/email', [App\Http\Controllers\StatusController::class, 'email'])->name('email');
+Route::post('/postemail', [App\Http\Controllers\StatusController::class, 'postEmail'])->name('postemail');
 
 Route::post('/status', [App\Http\Controllers\StatusController::class, 'postStatus'])->middleware(['auth'])->name('status.post');
 Route::post('/reply/{statusid}', [App\Http\Controllers\StatusController::class, 'postReply'])->middleware(['auth'])->name('status.reply');
 Route::get('/reply/{statusid}/like', [App\Http\Controllers\StatusController::class, 'getLike'])->middleware(['auth'])->name('status.like');
-
 
 
 

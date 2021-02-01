@@ -131,8 +131,9 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'email' => [
+            'required' => 'this email field is required abeg',
+            'email' => 'this is not a valid email ogbeni enter valid email adress',
         ],
     ],
 

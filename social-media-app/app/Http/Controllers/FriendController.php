@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 use App\Models\Users;
 use DB;
-use Auth;  
+use Auth;
 use Illuminate\Http\Request;
 
 class FriendController extends Controller
 {
-    
+
     public function getIndex()
     {
         $friends = Auth::user()->friends();
@@ -42,11 +42,11 @@ class FriendController extends Controller
        Auth::user()->addFriend($user);
        return redirect()
        ->route('profile.index', ['username' => $username])
-       ->with('info', 'friend request sent'); 
+       ->with('info', 'friend request sent');
     }
     public function getAccept($username)
     {
-        
+
         $user = Users::where('username', $username)->first();
         if(!$user){
             return redirect()
@@ -65,13 +65,13 @@ class FriendController extends Controller
 
            Auth::user()->acceptFriendRequest($user);
 
-        
+
             return redirect()
             ->route('profile.index', ['username' => $user->username])
             ->with('info', 'Friend  request accepted');
-           
-    
+
+
 
     }
+
 }
- 

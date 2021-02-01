@@ -83,4 +83,18 @@ class StatusController extends Controller
                             return redirect()->back();
                         }
 
+
+                        public function email()
+                        {
+                                return view('email');
+                        }
+                        public function postEmail(Request $request)
+                        {
+                             $this->validate($request,[
+                                 'email'=> 'required|email'
+                             ]);
+                            dd($request->email);
+                            
+                        }
+
 }

@@ -5,19 +5,20 @@
     <div class="container" >
         <div class="row">
             <div class="col-lg-6">
-               
+
                 <form action="{{ route('status.post') }}" method= "POST">
                     @csrf
-                   
+
                     <div class="form-group">
-                       
+
                         <textarea class="form-control" name="status" id="" rows="2" placeholder="what's up {{Auth::user()->getFirstNameOrUsername() }}?"></textarea>
-                   
+
                   </div>
-                    
+
                     <button type="submit" class="btn btn-primary" style="color: white">Update status</button>
-                    </form> 
+                    </form>
             </div>
+
         </div>
        </div>
        <div class="row">
@@ -41,7 +42,7 @@
                                    @endif
 
                                  </ul>
-                                   
+
                                  @foreach($status-> replies as $reply)
                                 <div class="media">
                                     <a href="{{ route('profile.index', ['username'=> $reply->user->username]) }}" class="pull-left"></a>
@@ -52,34 +53,34 @@
                                             <ul class="list-inline">
                                                 <span>{{ $reply->created_at->diffForHumans()}}</span>
                                                 @if($status->user->id !== Auth::user()->id)
-                                                
+
                                                 <span><a href="{{ route('status.like', ['statusid' =>$reply->id]) }}">likes</a></span>
                                               <span>{{ $reply->likes->count() }} {{\Illuminate\Support\Str::plural('like', $reply->likes->count()) }}</span>
                                               @endif
                                             </ul>
-                                              
-           
-                                       </div> 
-                                 
+
+
+                                       </div>
+
                                     </div>
-                                @endforeach     
+                                @endforeach
 
                             </div>
-                            
+
                     </div>
                     <div>
-                        
+
                         <form role="form" action="{{ route('status.reply',['statusid'=>$status->id]) }}" method="POST">
                             @csrf
                             <div class="mb-3">
-                            
+
                                 <textarea class="form-control" name="reply-{{ $status->id }}" rows="5" style="background: none" placeholder="reply to this status"></textarea>
                               </div>
                             <input type="submit" value="reply" class="btn btn-default btn-sm" style="background: red">
-                            
+
                         </form>
                     </div>
-                    
+
                @endforeach
 
                @endif

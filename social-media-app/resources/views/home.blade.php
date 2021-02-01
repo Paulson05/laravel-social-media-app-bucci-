@@ -56,5 +56,13 @@
         </div>
     </div>
     @endif
+
+    <div class="container">
+        <form action="" method="post">
+           @csrf
+              <input type="text" name="emal" id="" placeholder="type your email">
+              <button type="submit">submit</button>
+       </form>
+   </div>
 </header>
 @endsection
