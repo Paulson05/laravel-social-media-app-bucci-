@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 use App\Models\Users;
-use DB;
-use Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FriendController extends Controller
 {
@@ -16,6 +16,8 @@ class FriendController extends Controller
         return view('friend.index')
         ->with('friends', $friends)
         ->with('requests', $requests);
+
+
     }
     public function getAdd($username)
     {
@@ -60,7 +62,7 @@ class FriendController extends Controller
 
         if(!Auth::user()->hasFriendRequestReceived($user)){
             return redirect()
-            ->route('index')->with('info', "$username didn't send you a friend request");;
+            ->route('index')->with('info', "$username didn't send you a friend request");
            }
 
            Auth::user()->acceptFriendRequest($user);

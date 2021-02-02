@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Models\Status;
 use App\Models\Users;
-
+use App\Http\Requests\CreateFormRequest;
 use Illuminate\Http\Request;
 
 class StatusController extends Controller
@@ -88,11 +88,9 @@ class StatusController extends Controller
                         {
                                 return view('email');
                         }
-                        public function postEmail(Request $request)
+                        public function postEmail(CreateFormRequest $request)
                         {
-                             $this->validate($request,[
-                                 'email'=> 'required|email'
-                             ]);
+                           
                             dd($request->email);
                             
                         }
